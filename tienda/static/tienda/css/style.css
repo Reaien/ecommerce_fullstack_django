@@ -1,0 +1,190 @@
+/*background*/
+body{
+    background-image: url('../img/bg-comic.png');
+    background-repeat: repeat;
+    
+
+}
+
+/*imagenes y responsitvity carrusel*/
+#carouselExampleAutoplaying .carousel-item{
+    object-fit: cover;
+    object-position: center;
+    height: 25vw;
+}
+
+
+@media (max-width: 600px){
+#carouselExampleAutoplaying .carousel-caption{
+        height: 6rem;
+    }
+}
+/*fin imagenes y responsitvity carrusel*/
+
+.contenedor-barra-negra{
+    height: 5vw;
+}
+.contenedor-titulo{
+    height: 10vw;
+}
+.contenedor-categorias{
+    height: 20vw;
+}
+.navbar{
+    z-index: 1;
+}
+
+/*caption carrusel*/
+.carousel-caption{
+    font-family: 'Exo 2', sans-serif;
+    text-shadow: 0 0 10px #FF0000, 0 0 10px #0000FF;
+}
+.boton-categoria button{
+    transition: .3s;
+}
+.boton-categoria button:hover{
+    transform: scale(1.05);
+}
+
+.boton-categoria a{
+    transition: .3s;
+}
+.boton-categoria a:hover{
+    transform: scale(1.05);
+}
+/*fin caption carrusel*/
+
+
+/*ajustes cards productos*/
+.card-body img{
+    object-fit: cover;
+    object-position: center;
+    height: 20vw;
+}
+.card img{
+    transition: .3s;
+}
+.card img:hover{
+    transform: scale(1.05);
+}
+@media (max-width: 767px){
+    #fila-cards{
+        justify-content: center;
+    }
+    .card-body img{
+        height: 50%;
+    }
+}
+
+.card-body button{
+    transition: .3s;
+}
+.card-body button:hover{
+    transform: scale(1.2);
+}
+/*fin cards*/
+
+
+/* Mediaquerys para no romper responsivity navbar y logo */
+@media (max-width:784px){
+    .navbar p{
+        font-size: 95%;
+    }
+}
+
+@media (min-width:800){
+    #textologo p{
+        font-size: 100%;
+    }
+}
+/*fin navbar*/
+
+/* carrito*/
+
+#cart-container {
+    overflow-x: auto;
+}
+#cart-container table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+#cart-container table thead{
+    font-weight: 700;
+}
+
+#cart-container table thead td{
+    background: #e6a020;
+    color: #000000;
+    border: none;
+    padding: 6px 0;
+}
+
+#cart-container table td{
+    border: 1px solid #b6b3b3;
+    text-align: center;
+}
+
+#cart-container table td:nth-child(1){
+    width: 100px;
+}
+#cart-container table td:nth-child(2),
+#cart-container table td:nth-child(3){
+    width: 200px;
+}
+#cart-container table td:nth-child(4),
+#cart-container table td:nth-child(5),
+#cart-container table td:nth-child(6){
+    width: 200px;
+}
+
+#cart-container .prod{
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+}
+
+#cart-bottom .cupon>div{
+    border: 1px solid #b6b3b3;
+}
+
+#cart-bottom .cupon p,
+#cart-bottom .cupon input{
+    padding: 0 12px;
+
+}
+
+/*mostrar error*/
+.formulario__input-error{
+    display: none;
+}
+
+.formulario__input-error--activo{
+    display: block;
+}
+
+/* Estilos para validacion*/
+
+.formulario__grupo-correcto 
+.formulario__label{
+    color: #1ed12d;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+    color: red;
+}
+
+
+.formulario__grupo-incorrecto .formulario__input{
+    border: 3px solid red;
+}
+
+.formulario__grupo-correcto .formulario__input{
+    border: 3px solid #1ed12d;
+}
+
+#mapa{
+    height: 15rem;
+}
