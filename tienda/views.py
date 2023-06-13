@@ -3,10 +3,11 @@ from .models import Producto
 
 # Create your views here.
 def index(request):
-    return render(request,'tienda/index.html')
-
-def producto(request):
     productosListado = Producto.objects.all()
+    return render(request,'tienda/index.html',{"Productos": productosListado})
+
+def producto(request,pk):
+    productosListado = Producto.objects.get(id_producto=pk)
     return render(request,'tienda/producto.html', {"Productos": productosListado})
 
 def manga(request):

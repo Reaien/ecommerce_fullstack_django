@@ -84,26 +84,26 @@
     <!--Fin barra de navegacion-->
 
 
-
+    {% csrf_token %}
     <!--Inicio descripcion producto-->
 
-    {% for p in Productos %}
+    {% if Productos %}
     <section class="container">
         <div class="row g-5 ">     
                
             <div class="col-lg-4 ">    
-                <img class="img-fluid" src="../media/{{ p.imagen }}" alt="nodisp">
+                <img class="img-fluid" src="{{ Productos.imagen.url }}" alt="nodisp">
             </div>
             
             <div class="descripcion-container col-lg-8">
                 <h2 id="titulo_producto">
-                  {{p.nombre_producto}}
+                  {{Productos.nombre_producto}}
                 </h2>
                 <h3 id="desc_precio">
-                  {{p.precio}}
+                  ${{Productos.precio}}
                 </h3>
                 <p id="desc_descripcion" class="mb-5">
-                  {{p.descripcion_producto}}
+                  {{Productos.descripcion_producto}}
                 </p>
                 <div class="row">
                     <div class="col-lg-6">
@@ -112,7 +112,7 @@
                                 Formato: 
                             </div>
                             <div id="desc_formato" class="col-lg-6 fw-bold">
-                              {{p.formato}}
+                              {{Productos.formato}}
                             </div>
                         </div>
                         <div class="row">
@@ -120,7 +120,7 @@
                                 Autor: 
                             </div>
                             <div id="desc_autor" class="col-lg-6 fw-bold">
-                              {{p.autor}}
+                              {{Productos.autor}}
                             </div>
                         </div>
                         <div class="row">
@@ -128,7 +128,7 @@
                                 Editorial: 
                             </div>
                             <div id="desc_editorial" class="col-lg-6 fw-bold">
-                              {{p.editorial}}
+                              {{Productos.editorial}}
                             </div>
                         </div>
                         <div class="row">
@@ -136,7 +136,7 @@
                                 Idioma: 
                             </div>
                             <div id="desc_idioma" class="col-lg-6 fw-bold">
-                              {{p.idioma}}
+                              {{Productos.idioma}}
                             </div>
                         </div>
                         <div class="row">
@@ -144,7 +144,7 @@
                                 N°Paginas: 
                             </div>
                             <div id="desc_paginas" class="col-lg-6 fw-bold">
-                              {{p.paginas}}
+                              {{Productos.paginas}}
                             </div>
                         </div>
                         <div class="row">
@@ -152,7 +152,7 @@
                                 Categoria: 
                             </div>
                             <div id="desc_categoria" class="col-lg-6 fw-bold">
-                              {{p.categoria}}
+                              {{Productos.categoria}}
                             </div>
                         </div>
                         <div class="row">
@@ -160,7 +160,7 @@
                               Sinopsis: 
                           </div>
                           <div id="desc_sinopsis" class="col-lg-6 fw-bold">
-                            {{p.sinopsis}}
+                            {{Productos.sinopsis}}
                           </div>
                         </div>
                     </div>
@@ -173,7 +173,7 @@
             </div>
         </div>
     </section>
-    {% endfor %}
+    {% endif %}
 
 
     <!--Fin descripcion producto-->

@@ -185,169 +185,26 @@
     <section>
       <div class="container py-5">
           <div id="fila-cards" class="row g-4 ">
+
+            {% for p in Productos %}
             <div class="col-9 col-sm-7 col-md-4 col-lg-3">
               <div class="card p-4 bg-body-tertiary " >
                 <div class="card-body text-center">
-                  <img src="{% static 'tienda/img/card-manga-1.webp'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Manga Scream</h5>
-                  <p class="card-text">Manga del autor de horror Junji Ito.</p>
-                  <p class="card-text fw-bolder">$19.990</p>
+                  <a href="{% url 'producto' pk=p.id_producto %}">
+                    <img src="../media/{{ p.imagen }}" class="img-thumbnail " alt="img-card">
+                  </a>
+                  <h5 class="card-title mt-3">{{p.nombre_producto}}</h5>
+                  <p class="card-text">{{p.descripcion_producto}}</p>
+                  <p class="card-text fw-bolder">${{p.precio}}</p>
                   <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Agregar al carrito
                   </button>
                 </div>
               </div>
             </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-manga-3.webp'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Manga Tomie</h5>
-                  <p class="card-text">Manga del autor de horror Junji Ito.</p>
-                  <p class="card-text fw-bolder">$29.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <a href="{% url 'producto'%}"><img  src="{% static 'tienda/img/card-manga-4.jpg'%}" class="img-thumbnail " alt="img-card"></a>
-                  <h5 class="card-title mt-3">Manga Luminal Zone</h5>
-                  <p class="card-text">Manga del autor de horror Junji Ito.</p>
-                  <p class="card-text fw-bolder">$23.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-manga-5.jpg'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Manga Uzumaki</h5>
-                  <p class="card-text">Manga del autor de horror Junji Ito.</p>
-                  <p class="card-text fw-bolder">$19.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-anime-3.png'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Totoro</h5>
-                  <p class="card-text">Peluche tamaño medio de Totoro.</p>
-                  <p class="card-text fw-bolder">$9.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-anime-4.png'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Togepic</h5>
-                  <p class="card-text">Peluche franquicia pokemon Togepic.</p>
-                  <p class="card-text fw-bolder">$9.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-anime-5.png'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Figura Anime</h5>
-                  <p class="card-text">Figura de anime no game no life.</p>
-                  <p class="card-text fw-bolder">$35.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-anime-6.png'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Figura Asuka</h5>
-                  <p class="card-text">Figura de anime sword art online.</p>
-                  <p class="card-text fw-bolder">$39.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-gamer-1.jpg'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Mini monitor gamer</h5>
-                  <p class="card-text">Monitor configurable con pixel art.</p>
-                  <p class="card-text fw-bolder">$59.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-gamer-2.jpg'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Set gamer formula #1</h5>
-                  <p class="card-text">Set gamer de silla mas perifericos.</p>
-                  <p class="card-text fw-bolder">$299.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-gamer-3.webp'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Teclado Gamer</h5>
-                  <p class="card-text">Teclaro retroiluminado gamer mecanico.</p>
-                  <p class="card-text fw-bolder">$39.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
-              <div class="card p-4 bg-body-tertiary" >
-                <div class="card-body text-center">
-                  <img  src="{% static 'tienda/img/card-gamer-4.webp'%}" class="img-thumbnail " alt="img-card">
-                  <h5 class="card-title mt-3">Mouse gamer</h5>
-                  <p class="card-text">Mouse retroiluminado gamer con ajuste.</p>
-                  <p class="card-text fw-bolder">$19.990</p>
-                  <button type="button" class="btn btn-primary btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-
+            {% endfor %}
           </div>
       </div>
-
-
 
 
       <!-- Modal boton carrito -->
