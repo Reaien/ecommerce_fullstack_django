@@ -11,8 +11,7 @@ def producto(request,pk):
     return render(request,'tienda/producto.html', {"Productos": productosListado})
 
 def manga(request):
-    return render(request,'tienda/manga.html')
+    productosListado = Producto.objects.all()
+    return render(request,'tienda/manga.html',{"Productos": productosListado})
 
-def gamer(request):
-    return render(request,'tienda/gamer.html')
 
