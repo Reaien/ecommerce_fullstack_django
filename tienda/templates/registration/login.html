@@ -74,7 +74,7 @@
                   Carrito</a>
               </li>
               <li class="nav-item icono-login pt-md-2">
-                <a class="nav-link" href="login.html"><i class="bi bi-bag"><img class="mb-1 me-3" src="{% static 'tienda/img/person-fill-gear.svg'%}" alt="derp"></i>Login</a>
+                <a class="nav-link" href="{% url 'login' %}"><i class="bi bi-bag"><img class="mb-1 me-3" src="{% static 'tienda/img/person-fill-gear.svg'%}" alt="derp"></i>Login</a>
               </li>
             </ul>
           </div>
@@ -86,16 +86,18 @@
 
 
     <section class="container">
-      <div class="row text-center">
+      <div class="row text-center justify-content-center">
         <div class="col-12 col-md-6">
+          <div class="mt-3 mb-3">
+            <img class="img-fluid w-25" src="{% static 'tienda/img/icono-login.png' %}" alt="">
+          </div>
           <div class="card">
             <div class="card-body">
-              <h2>Ingresa tus credenciales</h2>
+              <div class="fw-bold fs-4 mb-3">Inicio de sesión</div>
               <form action="" method="POST">
                 {% csrf_token %}
                 {{form}}
-
-                <input type="submit" value="ingresar">
+                <input class="mt-3 btn btn-primary" type="submit" value="Ingresar">
               </form>
             </div>
           </div>
