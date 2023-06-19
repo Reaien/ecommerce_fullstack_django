@@ -7,6 +7,7 @@ def index(request):
     return render(request,'tienda/index.html',{"Productos": productosListado})
 
 def producto(request,pk):
+    #select * from prudctos where id_producto = 1
     productosListado = Producto.objects.get(id_producto=pk)
     return render(request,'tienda/producto.html', {"Productos": productosListado})
 
