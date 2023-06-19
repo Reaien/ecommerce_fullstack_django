@@ -1,6 +1,9 @@
 {% extends 'tienda/base.html' %}
 {% load static %}
 {% block contenido_body %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
 
     <section class="container pt-5">
       <div class="row text-center justify-content-center">
@@ -13,7 +16,7 @@
               <div class="fw-bold fs-4 mb-3">Inicio de sesión</div>
               <form action="" method="POST">
                 {% csrf_token %}
-                {{form}}
+                {{form | crispy}}
                 <input class="mt-3 btn btn-primary" type="submit" value="Ingresar">
               </form>
             </div>

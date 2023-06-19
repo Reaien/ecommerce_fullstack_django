@@ -73,7 +73,7 @@
                 <div class="card-body text-center">
                   <a href="{% url 'producto' pk=p.id_producto %}">
                     {% if p.imagen %}
-                    <img src="../media/{{ p.imagen }}" class="img-thumbnail " alt="img-card">
+                    <img src="{{ p.imagen.url }}" class="img-thumbnail " alt="img-card">
                     {% endif %}
                   </a>
                   <h5 class="card-title mt-3">{{p.nombre_producto}}</h5>

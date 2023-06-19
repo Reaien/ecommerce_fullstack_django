@@ -1,0 +1,28 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+{% block contenido_body %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+    <div class="row d-flex justify-content-center pt-5">
+        <div class="col-12 col-md-6 ">
+            <div class="card ">
+                <div class="card-body">
+                    {{mensaje}}
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="fs-2 mb-4 text-center">Agregar Producto</div>
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <div class="d-flex justify-content-evenly">
+                            <input type="submit" value="Guardar" class="btn btn-primary ">
+                            <input type="reset" value="Cancelar" class="btn btn-primary">                        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block contenido_body %}
+
+    <div class="table-striped table-hover table-responsive mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID Producto</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Paginas</th>
+                    <th>Idioma</th>
+                    <th>Editorial</th>
+                    <th>Portada</th>
+                    <th></th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in Productos %}
+                <tr>
+                    <td>{{ p.id_producto }}</td>
+                    <td> {{ p.nombre_producto }} </td>
+                    <td> {{ p.precio | intcomma}} </td>
+                    <td> {{ p.paginas }} </td>
+                    <td> {{ p.idioma }} </td>
+                    <td> {{ p.editorial }} </td>
+                    {% if p.imagen %}
+                    <td> <img src="{{ p.imagen.url }}" alt="imagen_producto" class="w-25"></td>
+                    {% endif %}
+                    <td><a class="btn btn-warning" href="">Editar</a></td>
+                    <td><a class="btn btn-danger" href="">Eliminar Producto</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
