@@ -7,4 +7,7 @@ urlpatterns=[
     path('manga', views.manga, name='manga'),
     path('agregar-producto', views.agregarProducto, name='agregarProducto'),
     path('listar-producto', views.listarProducto, name='listarProducto'),
+    path('modificar-producto/<str:pk>', views.modificarProducto, name='modificarProducto'),
+    path('eliminar-producto/<str:pk>/', views.eliminarProducto, name='eliminarProducto'),
+    path('control-panel', views.controlPanel, name='controlPanel'),
 ]

@@ -62,11 +62,29 @@
 
 
 
+    <!--Función para manipular los sweet alert y asociarle el id para que levante al eliminar redirigiendo con promise al url que aloja la def eliminarProducto-->
+    <script src="{% static 'tienda/js/funcion_eliminar_alert.js'%}"></script>
+
+
     <!--Inicio cards de productos-->
 
     <section>
       <div class="container py-5">
           <div id="fila-cards" class="row g-4 ">
+            {% if user.is_staff or user.is_superuser %}
+            <div class="col-9 col-sm-7 col-md-4 col-lg-3">
+              <div class="card p-4 bg-body-tertiary " >
+                <div class="card-body text-center">
+                  <a href="{% url 'agregarProducto'%}">
+                    <img src="{% static 'tienda/img/add.png' %}" class="img-thumbnail " alt="img-card">
+                  </a>
+                  <h5 class="card-title mt-3">Agregar nuevo producto</h5>
+                  <br>
+                  <br>
+                </div>
+              </div>
+            </div>
+            {% endif %}
             {% for p in Productos %}
             <div class="col-9 col-sm-7 col-md-4 col-lg-3">
               <div class="card p-4 bg-body-tertiary " >
@@ -84,8 +102,8 @@
                   </button>
                   {% if user.is_staff or user.is_superuser %}
                   <div class="mt-2">
-                    <a class="btn btn-dark" href="#">Editar</a>
-                    <a class="btn btn-dark" href="#">Eliminar</a>
+                    <a class="btn btn-warning" href="{% url 'modificarProducto' p.id_producto %}">Editar</a>
+                    <a class="btn btn-danger" href="#" onclick="eliminarProducto({{p.id_producto}})">Eliminar</a>
                   </div>
                   {% endif %}
                 </div>

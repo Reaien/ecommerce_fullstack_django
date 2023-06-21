@@ -3,6 +3,17 @@
 {% load humanize %}
 {% block contenido_body %}
 
+
+    <!--Función para manipular los sweet alert y asociarle el id para que levante al eliminar redirigiendo con promise al url que aloja la def eliminarProducto-->
+    <script src="{% static 'tienda/js/funcion_eliminar_alert.js'%}"></script>
+
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <img src="{% static 'tienda/img/banner-listar-productos.png'%}" alt="banner_controlpanel">
+        </div>
+    </div>
+
     <div class="table-striped table-hover table-responsive mt-5">
         <table class="table">
             <thead>
@@ -21,7 +32,7 @@
             <tbody>
                 {% for p in Productos %}
                 <tr>
-                    <td>{{ p.id_producto }}</td>
+                    <td class="fw-bold">{{ p.id_producto }}</td>
                     <td> {{ p.nombre_producto }} </td>
                     <td> {{ p.precio | intcomma}} </td>
                     <td> {{ p.paginas }} </td>
@@ -30,8 +41,8 @@
                     {% if p.imagen %}
                     <td> <img src="{{ p.imagen.url }}" alt="imagen_producto" class="w-25"></td>
                     {% endif %}
-                    <td><a class="btn btn-warning" href="">Editar</a></td>
-                    <td><a class="btn btn-danger" href="">Eliminar Producto</a></td>
+                    <td><a class="btn btn-warning" href="{% url 'modificarProducto' p.id_producto %}">Editar</a></td>
+                    <td><a class="btn btn-danger" href="#" onclick="eliminarProducto({{p.id_producto}})">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
