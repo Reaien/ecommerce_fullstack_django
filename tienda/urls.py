@@ -10,4 +10,5 @@ urlpatterns=[
     path('modificar-producto/<str:pk>', views.modificarProducto, name='modificarProducto'),
     path('eliminar-producto/<str:pk>/', views.eliminarProducto, name='eliminarProducto'),
     path('control-panel', views.controlPanel, name='controlPanel'),
+    path('registro', views.registro, name='registro'),
 ]

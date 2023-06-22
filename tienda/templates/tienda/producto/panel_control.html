@@ -4,30 +4,40 @@
 
 
     <section class="container">
-        <div class="row">
+        <div class="row mt-5 mb-5">
             <div class="col-md-12 text-center">
-                <img src="{% static 'tienda/img/banner-control-panel.png'%}" alt="banner_controlpanel">
+                <img class="img-fluid" src="{% static 'tienda/img/banner-control-panel.png'%}" alt="banner_controlpanel">
             </div>
         </div>
         <div class="row p-0">
-            <div class="col-md-6">
-                <a href="">
-                    <img src="" alt="">
+            <div class="col-md-4">
+                <a href="{% url 'agregarProducto'%}" class="text-decoration-none">
+                    <div class="card mb-3">
+                        <img src="{% static 'tienda/img/agregarproducto-controlpanel.png' %}" class="img-thumbnail" alt="card-lista">
+                        <div class="card-body">
+                            <p class="fw-bold fs-3 text-center text-dark">Agregar producto</p>
+                        </div>
+                    </div>
                 </a>
             </div>
-            <div class="col-md-6">
-                <a href="">
-                    <img src="" alt="">
+            <div class="col-md-4">
+                <a href="{% url 'listarProducto'%}" class="text-decoration-none">
+                    <div class="card mb-3">
+                        <img src="{% static 'tienda/img/eliminar-producto-controlpanel.webp' %}" class="img-thumbnail" alt="card-lista">
+                        <div class="card-body">
+                            <p class="fw-bold fs-3 text-center text-dark pt-3">Inventario</p>
+                        </div>
+                    </div>
                 </a>
             </div>
-            <div class="col-md-6">
-                <a href="">
-                    <img src="" alt="">
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a href="">
-                    <img src="" alt="">
+            <div class="col-md-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card mb-3">
+                        <img src="{% static 'tienda/img/editar-producto_controlpanel.jpg' %}" class="img-thumbnail" alt="card-lista">
+                        <div class="card-body">
+                            <p class="fw-bold fs-3 text-center text-dark pt-4">Control de usuarios</p>
+                        </div>
+                    </div>
                 </a>
             </div>
         </div>
