@@ -45,22 +45,10 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'index'%}">Inicio</a>
               </li>
               <li class="nav-item pt-md-2">
-                <a class="nav-link" href="login.html">Registro</a>
-              </li>
-              <li class="nav-item pt-md-2">
-                <a class="nav-link" href="#">Ofertas</a>
-              </li> 
-              <li class="nav-item dropdown pt-md-2">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Zona Gamer
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Gears</a></li>
-                  <li><a class="dropdown-item" href="#">Juegos</a></li>
-                </ul>               
-              </li>             
+                <a class="nav-link" href="#">Registro</a>
+              </li>        
               <li class="nav-item icono-carrito pt-md-2">
-                <a class="nav-link" href="carrito.html">
+                <a class="nav-link" href="#">
                   <i class="bi bi-bag"><img class="mb-1 me-lg-6" src="{% static 'tienda/img/bag.svg'%}" alt="derp"></i>
                   Carrito</a>
               </li>
@@ -73,6 +61,9 @@
                   <a class="nav-link" href="{% url 'controlPanel'%}"><i class="bi bi-bag"><img class="mb-1 me-3" src="{% static 'tienda/img/person-fill-gear.svg'%}" alt="derp"></i>Panel de control</a>
                 </li>
                 {% endif %}
+                <li class="nav-item icono-login pt-md-2">
+                  <a class="nav-link fw-bold" href="#"><i class="bi bi-bag"><img class="mb-1 me-3" src="{% static 'tienda/img/gato.png'%}" alt="derp"></i>Hola! {{user.username}} </a>
+                </li>
               {% else %}
                 <li class="nav-item icono-login pt-md-2">
                   <a class="nav-link" href="{% url 'login' %}"><i class="bi bi-bag"><img class="mb-1 me-3" src="{% static 'tienda/img/person-fill-gear.svg'%}" alt="derp"></i>Login</a>
