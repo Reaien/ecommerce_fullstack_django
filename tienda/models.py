@@ -20,7 +20,6 @@ class TipoProducto(models.Model):
 
 #Tabla producto
 class Producto(models.Model):
-    id_producto = models.CharField(primary_key=True, max_length=6)
     nombre_producto = models.CharField(max_length=200)
     precio = models.PositiveSmallIntegerField()
     descripcion_producto = models.CharField(max_length=200)
@@ -34,6 +33,3 @@ class Producto(models.Model):
     tipo_producto = models.ForeignKey(TipoProducto,null=True, on_delete=models.PROTECT)
     imagen = models.ImageField(upload_to="tienda/", null=True, blank=True)
 
-    def __str__(self):
-        texto = "({0}) {1}"
-        return texto.format(self.id_producto, self.nombre_producto)

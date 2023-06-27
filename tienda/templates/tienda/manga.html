@@ -46,7 +46,7 @@
                   <div class="col-9 col-sm-7 col-md-4">
                     <div class="card p-4 bg-body-tertiary " >
                       <div class="card-body text-center">
-                        <a href="{% url 'producto' pk=p.id_producto %}">
+                        <a href="{% url 'producto' p.id %}">
                           {% if p.imagen %}
                           <img src="../media/{{ p.imagen }}" class="img-thumbnail " alt="img-card">
                           {% endif %}
