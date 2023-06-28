@@ -18,6 +18,7 @@ class Carrito:
                 "nombre": producto.nombre_producto,
                 "valor": producto.precio,
                 "cantidad": 1,
+                "imagen": producto.imagen.url,
             }
         else:
             self.carrito[id]["cantidad"] += 1

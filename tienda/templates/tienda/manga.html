@@ -17,30 +17,7 @@
 
     <section class="container">
         <div class="row g-5 ">
-            <div class="col-lg-3 border-end">
-                <div class="mb-3">
-                    <h5>Filtro por categoria: </h5>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox"> <td>Horror</td>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox"> <td>Fantasía</td>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox"> <td>Comedia</td>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox"> <td>Romance</td>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox"> <td>Paranormal</td>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-primary btn-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Filtrar</button>
-                </div>
-            </div>
-            <div class="descripcion-container col-lg-8">
+            <div class="descripcion-container col-lg-12">
                 <div id="fila-cards" class="row g-4 ">
                   {% for p in Productos %}
                   <div class="col-9 col-sm-7 col-md-4">

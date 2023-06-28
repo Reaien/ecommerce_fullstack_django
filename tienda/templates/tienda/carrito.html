@@ -3,6 +3,7 @@
 {% load humanize %}
 {% block contenido_body %}
 
+
   <section class="container">
     <div class="row d-flex justify-content-center">
       <img  id="boton_comprar" class="img-fluid w-25" src="{% static 'tienda/img/titulo-carrito.png'%}" alt="banner_controlpanel">
@@ -12,14 +13,12 @@
     <div class="row">
 
       <div class="col-md-8">
-        <div class="card">
-          <div class="card-body">
             <div class="table-responsive table-hover">
               <table class="table table-striped">
                 <tr>
                   <th>Nombre</th>
-                  <th>Precio</th>
                   <th>Cantidad</th>
+                  <th>Imagen</th>
                   <th>Valor</th>
                   <th></th>
                 </tr>
@@ -32,7 +31,10 @@
                       <a href="{% url 'agregarProductoCarrito' value.producto_id %}" class="btn btn-dark">+</a> 
                       <a href="{% url 'restarProductoCarrito' value.producto_id %}" class="btn btn-dark">-</a>
                     </td>
-                    <td>{{value.valor}}</td>
+                    {% if value.imagen %}
+                    <td > <img class="w-25" id="imagen_carrito" src="{{value.imagen}}" alt="imagen_carrito"> </td>
+                    {% endif %}
+                    <td>{{value.valor | intcomma}}</td>
                     <td> <a href="{% url 'eliminarProductoCarrito' value.producto_id %}" class="btn btn-danger">Eliminar</a> </td>
                   </tr>
                 {% endfor %}
@@ -41,8 +43,6 @@
                 {% endif %}
               </table>
             </div>
-          </div>
-        </div>
       </div> 
       <div class="col-md-4">
         <div class="card">
@@ -52,14 +52,17 @@
                 <tr>
                   <th>Resumen de compra</th>
                   <th></th>
+                  <th></th>
                 </tr>
                 <tr>
                   <td>Total de tu compra: </td>
-                  <td>${{total_carrito}}</td>
+                  <td>${{total_carrito | intcomma}}</td>
                 </tr>
                 <tr>
-                  <td> <a href="{% url 'limpiarProductoCarrito' %}" class="btn btn-warning">Limpiar carrito</a> </td>
-                  <td> <a href="" class="btn btn-warning">Comprar</a> </td>
+                  <td> <a id="paypal-button-container"></a> </td>
+                </tr>
+                <tr>
+                  <td><a href="{% url 'limpiarProductoCarrito' %}" class="btn btn-warning">Limpiar carrito</a></td>
                 </tr>
               </table>
             </div>
@@ -68,6 +71,27 @@
       </div> 
     </div>
   </section>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AYfRv4jEA7CAAGe6F0d7SA3GgM4Hg3gevg8XWQ9V586tf6ijqL9YZvL0XXKfBq_4t4Kr2iMbEBB8suCO" ></script>
+
+  <script>
+    paypal.Buttons({
+      createOrder: function(data, actions){
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: {{total_carrito}}
+            }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details){
+          alert('Transaccion completa por ' + details.payer.name.given_name);
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
 
 
 
