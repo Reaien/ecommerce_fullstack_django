@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from tienda.carrito import Carrito
 from .models import Producto
-from .forms import ProductoForm, CustomUserCreationForm
+from .forms import ProductoForm, CustomUserCreationForm, UserModForm
+from django.contrib.auth.models import User
 from django.contrib import messages
 #IMPORTANTE AUTENTICAR
 from django.contrib.auth import authenticate, login #estas 2 funciones permitiran autenticar al usuario
@@ -23,9 +24,27 @@ def producto(request,id):
 
 #listar productos en manga
 def manga(request):
-    productosListado = Producto.objects.all()
+    productosListado = Producto.objects.filter(tipo_producto=1)
     return render(request,'tienda/manga.html',{"Productos": productosListado})
 
+#listar productos en ropa
+def ropa(request):
+    productosListado = Producto.objects.filter(tipo_producto=2)
+    return render(request,'tienda/ropa.html',{"Productos": productosListado})
+
+#listar productos en figura
+def figura(request):
+    productosListado = Producto.objects.filter(tipo_producto=3)
+    return render(request,'tienda/figura.html',{"Productos": productosListado})
+
+#listar productos en anime
+def anime(request):
+    productosListado = Producto.objects.filter(tipo_producto=4)
+    return render(request,'tienda/anime.html',{"Productos": productosListado})
+
+
+
+#seccion CRUD con permisos de autorizacion
 @permission_required('tienda.add_producto')
 #funcion para agregar producto
 def agregarProducto(request):
@@ -79,7 +98,32 @@ def eliminarProducto(request, id):
 def controlPanel(request):
     return render(request, 'tienda/producto/panel_control.html')
 
+@permission_required('tienda.delete_producto')
+def listar_usuarios(request):
+    listadoUsuarios = User.objects.all()
+    data = {'usuarios': listadoUsuarios}
+    return render(request, 'tienda/producto/listar_usuarios.html', data)
 
+@permission_required('tienda.change_producto')
+#modificar producto para control panel
+def modificarUsuario(request,id):
+    #select * from prudctos where id_producto = 1
+    usuario = get_object_or_404(User, id = id)
+    data = {'form': UserModForm(instance=usuario)}
+
+    if request.method == 'POST':
+        formulario = UserModForm(data=request.POST, instance=usuario, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Usuario modificado correctamente")
+            return redirect(to="listarUsuarios")
+        data['form'] = formulario
+
+    return render(request,'tienda/producto/modificar_usuario.html', data)
+#FIN seccion CRUD con permisos de autorizacion
+
+
+#registro de usuario
 def registro(request):
     data = {'form': CustomUserCreationForm}
 
@@ -97,8 +141,9 @@ def registro(request):
     return render(request,'registration/registro.html', data)
 
 
-#seccion carrito
 
+
+#seccion carrito
 def carrito(request):
     productosListado = Producto.objects.all()
     data = {"productos": productosListado}

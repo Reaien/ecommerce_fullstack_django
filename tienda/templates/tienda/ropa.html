@@ -37,8 +37,8 @@
                         </button>
                         {% if user.is_staff or user.is_superuser %}
                         <div class="mt-2">
-                          <a class="btn btn-warning" href="{% url 'modificarProducto' p.id %}">Editar</a>
-                          <a class="btn btn-danger" href="#" onclick="eliminarProducto({{p.id}})">Eliminar</a>
+                            <a class="btn btn-warning" href="{% url 'modificarProducto' p.id %}">Editar</a>
+                            <a class="btn btn-danger" href="#" onclick="eliminarProducto({{p.id}})">Eliminar</a>
                         </div>
                         {% endif %}
                       </div>

@@ -8,3 +8,7 @@ cuenta businness developer
 sb-lujny8269504@business.example.com
 jL+TyL_9
 
+
+https://www.sandbox.paypal.com/
+
+https://www.paypal.com/mep/dashboard

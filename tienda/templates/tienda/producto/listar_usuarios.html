@@ -1,0 +1,36 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block contenido_body %}
+
+    <section class="container">
+        <div class="table-responsive table-hover mt-5">
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th>ID Usuario</th>
+                        <th>Nombre de usuario</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in usuarios %}
+                    <tr>
+                        <td class="fw-bold">{{ u.id }}</td>
+                        <td> {{ u.username }} </td>
+                        <td> {{ u.first_name}} </td>
+                        <td> {{ u.last_name }} </td>
+                        <td> {{ u.email }} </td>
+                        <td><a class="btn btn-warning" href="{% url 'modificarUsuarios' u.id %}">Editar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+{% endblock %}
