@@ -3,7 +3,7 @@ services:
     name: ecommerce
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn jdelb.wsgi:application"
+    startCommand: "gunicorn ecommerce.wsgi:application"
     envVars:
       - key: DEBUG
         value: "False"
